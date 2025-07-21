@@ -1,0 +1,15 @@
+﻿,OrderDate,Region,Manager,SalesMan,Item,Units, Unit_price ,Sale_amt
+0,1/6/2018,East,Martha,Alexander,Television,95,1198,113810
+1,1/23/2018,Central,Hermann,Shelli,Home Theater,50,500,25000
+2,2/9/2018,Central,Hermann,Luis,Television,36,1198,43128
+3,2/26/2018,Central,Timothy,David,Cell Phone,27,225,6075
+4,3/15/2018,West,Timothy,Stephen,Television,56,1198,67088
+5,4/1/2018,East,Martha,Alexander,Home Theater,60,500,30000
+6,4/18/2018,Central,Martha,Steven,Television,75,1198,89850
+7,5/5/2018,Central,Hermann,Luis,Television,90,1198,107820
+8,5/22/2018,West,Douglas,Michael,Television,32,1198,38336
+9,6/8/2018,East,Martha,Alexander,Home Theater,60,500,30000
+10,6/25/2018,Central,Hermann,Sigal,Television,90,1198,107820
+11,7/12/2018,East,Martha,Diana,Home Theater,29,500,14500
+12,7/29/2018,East,Douglas,Karen,Home Theater,81,500,40500
+13,8/15/2018,East,Martha,Alexander,Television,35,1198,41930

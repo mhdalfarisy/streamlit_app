@@ -1,0 +1,216 @@
+
+# ---- VISUALISASI STREAMLIT USE ST
+# import streamlit as st
+# import pandas as pd
+# import os
+# import matplotlib.pyplot as plt
+
+
+
+# st.set_page_config(layout="wide",initial_sidebar_state="auto")
+
+# var_header = st.header("**Explore Data and Visualisation**")
+# var_markdown_1 = st.markdown("___")
+
+
+# def explore_data_menu():
+
+#     var_radio_choice = st.selectbox("Choice Upload File: ", ['URL CSV','Upload CSV','Upload XLSX'],index=None)
+
+    
+#     if var_radio_choice == 'URL CSV':
+
+#         var_input_url = st.text_input('Input URL : ')
+#         if var_input_url is None :
+#             try:
+#                 var_input_url_result = pd.read_csv(var_input_url)
+#                 st.write("Dataset : ")
+#                 st.dataframe(var_input_url_result)
+#             except Exception as Information_Input_URL :
+#                 st.error("Error : Unable to read the URL CSV File")       
+  
+#     elif var_radio_choice == 'Upload CSV':
+#         var_upload_csv = st.file_uploader(label='Upload CSV : ', type=['csv'])
+#         if var_upload_csv is not None :
+#             save_path = "D:\Training SSIS + Python + Streamlit\Streamlit (Deployment)"
+#             os.makedirs(save_path,exist_ok=True)
+#             file_path = os.path.join(save_path, var_upload_csv.name)
+#             with open(file_path, "wb") as f:
+#                 f.write(var_upload_csv.getbuffer())  
+#             try:              
+#                 df = pd.read_csv(file_path)
+#                 st.write(df)
+#                 var_radio_choice_notification = st.text("File success upload and save in : {}".format(file_path))
+#                 var_df_column = df.columns
+#             except Exception as Information_Upload_CSV :
+#                 st.error("Error : Unable to read the Upload CSV File")
+
+            
+#             var_choice_x = st.selectbox("Choice Variabel X : ", df.columns, index=None)
+#             var_choice_y = st.selectbox("Choice Variabel Y : ", df.columns, index=None)
+
+#             ## Choice Color
+#             var_reference_color = st.radio("Choice default color :",['#2FA277','#F63366','#F6AE33'],index=0)
+#             st.write('You can custom this color with click a box *****Pick A Color :*****')
+#             var_color = st.color_picker('Pick a Color',var_reference_color)
+#             var_choice_color_picker = var_color
+            
+#             if var_choice_x is not None and var_choice_y is not None :
+#                 try:
+#                     var_header_name = st.text_input('***Write Header Name :***')
+#                     st.write(var_header_name)
+#                     var_visualisasi_result = st.bar_chart(data=df, x=var_choice_x, y=var_choice_y,color=var_choice_color_picker)
+#                 except Exception as Information_Upload_Excel :
+#                     st.error("Error : Unable to Visualisation")
+
+#     elif var_radio_choice == 'Upload XLSX':
+#         var_upload_xlsx = st.file_uploader(label='Upload XLSX:', type=['xlsx'])
+#         if var_upload_xlsx is not None:
+#             save_path = "D:\\Training SSIS + Python + Streamlit\\Streamlit (Deployment)"
+#             os.makedirs(save_path, exist_ok=True)
+#             file_path = os.path.join(save_path, var_upload_xlsx.name)
+#             with open(file_path, "wb") as f:
+#                 f.write(var_upload_xlsx.getbuffer())
+#             try:              
+#                 df = pd.read_excel(file_path)
+#                 st.write(df)
+#                 var_radio_choice_notification = st.text("File success upload and save in : {}".format(file_path))
+#                 var_df_column = df.columns
+#             except Exception as Information_Upload_CSV :
+#                 st.error("Error : Unable to read the Upload CSV File")
+
+            
+#             var_choice_x = st.selectbox("Choice Variabel X : ", df.columns, index=None)
+#             var_choice_y = st.selectbox("Choice Variabel Y : ", df.columns, index=None)
+
+#             ## Choice Color
+#             var_reference_color = st.radio("Choice default color :",['#2FA277','#F63366','#F6AE33'],index=0)
+#             st.write('You can custom this color with click a box *****Pick A Color :*****')
+#             var_color = st.color_picker('Pick a Color',var_reference_color)
+#             var_choice_color_picker = var_color
+
+#             if var_choice_x is not None and var_choice_y is not None :
+#                 try:
+#                     var_header_name = st.text_input('***Write Header Name :***')
+#                     st.write(var_header_name)
+#                     var_visualisasi_result = st.bar_chart(data=df, x=var_choice_x, y=var_choice_y,color=var_choice_color_picker)
+#                 except Exception as Information_Upload_Excel :
+#                     st.error("Error : Unable to Visualisation") 
+
+
+# if __name__ == "__main__":
+#     explore_data_menu() 
+
+
+
+# --- ADD NEW TABS
+# # import streamlit as st
+# # import numpy as np
+
+# # # Function to create a new tab
+# # def create_new_tab(tab_number, tab_name):
+# #     # Create a new tab with a unique title
+# #     new_tab = st.empty()  # Placeholder for the new tab
+# #     new_tab.title(f"{tab_name}")
+# #     # Add content to the new tab
+# #     new_tab.write(f"This is {tab_name}")
+
+# # # Maximum number of sets of initial tabs
+# # max_initial_tabs = 10
+
+# # # Counter for the number of sets of initial tabs
+# # num_initial_tabs = 0
+
+# # # Check if the user wants to add initial tabs
+# # add_initial_tabs = st.radio("Add initial tabs?", ["Yes", "No"])
+
+# # if add_initial_tabs == "Yes":
+# #     num_initial_tabs += 1
+# #     if num_initial_tabs <= max_initial_tabs:
+# #         tab_names = []
+# #         # Prompt user for custom tab names
+# #         for i in range(1, 2):  # Customize this range based on how many tabs you want to create initially
+# #             tab_name = st.text_input(f"Enter the name for tab {i}:", f"Tab {i}")
+# #             tab_names.append(tab_name)
+        
+# #         # Add additional tab if needed
+# #         add_additional_tab = st.radio("Add an additional tab?", ["Yes", "No"])
+# #         add_tabs = st.chat_input()
+# #         if add_additional_tab == "Yes" and add_tabs is not None:
+# #             for i in range(1, 1 + int(add_tabs)):
+# #                 tab_name = st.text_input(f"Enter the name for tab {i+1}:", f"Tab {i+1}")
+# #                 tab_names.append(tab_name)
+# #                 if i == 1:
+# #                     create_new_tab(i + 1, tab_name)
+        
+# #         # Create the initial tabs
+# #         initial_tabs = st.tabs(tab_names)
+
+# #         # Random data for demonstration
+# #         data = np.random.randn(10, 1)
+
+# #         # Add content to each tab
+# #         for i, tab_name in enumerate(tab_names):
+# #             initial_tabs[i].subheader(f"A tab with {tab_name}")
+# #             initial_tabs[i].line_chart(data)
+# #     else:
+# #         st.write(f"Maximum limit of initial tab sets ({max_initial_tabs}) reached.")
+
+
+
+# STREAMLIT NEW CODE - 16-APRIL-2024
+
+# import streamlit as st
+# import pandas as pd
+# import matplotlib.pyplot as plt
+
+# st.set_page_config(layout="wide", initial_sidebar_state="auto")
+
+# var_header = st.header("**Explore Data and Visualization**")
+# var_markdown_1 = st.markdown("___")
+
+# tabs = st.tabs(["Data", "Setting"])
+
+# def setting_data():
+#     var_header_name = st.text_input('***Header Name :***','Header Name') # Provide default value -- return
+#     var_label_x_name = st.text_input('***X Label :***', 'X Label')  # Provide default value -- return
+#     var_label_y_name = st.text_input('***Y Label :***', 'Y Label')  # Provide default value -- return
+#     var_width_size = st.number_input('Width Size : ', value=0.5)  # Provide default value -- return
+#     var_reference_color = st.radio("Choice default color :", ['#2FA277', '#F63366', '#F6AE33'], index=0)
+#     st.write('You can custom this color with click a box *****Pick A Color :*****')
+#     var_color = st.color_picker('Pick a Color', var_reference_color)
+#     var_choice_color_picker = var_color  # Provide default value -- return
+#     return var_header_name, var_label_x_name, var_label_y_name, var_width_size, var_choice_color_picker
+
+# def explore_data_menu():
+#     with tabs[1]:
+#         st.write('Progress . . .')
+#         var_header_name, var_label_x_name, var_label_y_name, var_width_size, var_choice_color_picker = setting_data()
+
+#     with tabs[0]:
+#         var_radio_choice = st.selectbox("Choice Upload File: ", ['URL CSV', 'Upload CSV', 'Upload XLSX'], index=None)
+#         if var_radio_choice == 'URL CSV':
+#             var_input_url = st.text_input('Input URL : ')
+#             if var_input_url:
+#                 try:
+#                     var_input_url_result = pd.read_csv(var_input_url)
+#                     st.write("Dataset : ")
+#                     st.dataframe(var_input_url_result)
+#                     df = var_input_url_result
+
+#                     var_choice_x = st.selectbox("Choice Variabel X:", df.columns, index=None)
+#                     var_choice_y = st.selectbox("Choice Variabel Y:", df.columns, index=None)
+
+#                     if var_choice_x is not None and var_choice_y is not None:
+#                         plt.figure(figsize=(20, 5))
+#                         plt.bar(df[var_choice_x], df[var_choice_y], color=var_choice_color_picker, width=var_width_size)
+#                         plt.xlabel(var_label_x_name, fontsize=10)
+#                         plt.ylabel(var_label_y_name)
+#                         plt.title(var_header_name)
+#                         plt.xticks(df[var_choice_x], rotation=45, ha='right')
+#                         st.pyplot(plt)
+#                 except Exception as Information_Input_URL:
+#                     st.error("Error : Unable to read the URL CSV File")
+
+# if __name__ == "__main__":
+#     explore_data_menu()
